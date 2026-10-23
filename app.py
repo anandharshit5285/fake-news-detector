@@ -15,15 +15,29 @@ import numpy as np
 # Initialize Flask app
 app = Flask(__name__)
 
-# Load trained model and vectorizer
-print("Loading model and vectorizer...")
-model = joblib.load('models/fake_news_model.pkl')
-vectorizer = joblib.load('models/tfidf_vectorizer.pkl')
-print("✓ Model and vectorizer loaded successfully!")
+# Load trained model and vectorizer (lazy)
+model = None
+vectorizer = None
+
+def _load_resources():
+    global model, vectorizer
+    if model is None or vectorizer is None:
+        import joblib, os
+        model_path = os.path.join('models', 'fake_news_model.pkl')
+        vect_path = os.path.join('models', 'tfidf_vectorizer.pkl')
+        model = joblib.load(model_path)
+        vectorizer = joblib.load(vect_path)
+        print("✓ Model and vectorizer loaded successfully!")
 
 # Initialize preprocessing tools
 stemmer = PorterStemmer()
-stop_words = set(stopwords.words('english'))
+# Load stopwords safely – download if missing
+try:
+    stop_words = set(stopwords.words('english'))
+except LookupError:
+    import nltk
+    nltk.download('stopwords', quiet=True)
+    stop_words = set(stopwords.words('english'))
 
 
 def preprocess_text(text):
@@ -73,6 +87,8 @@ def predict_news(text):
     # Preprocess
     cleaned_text = preprocess_text(text)
     
+    # Ensure resources are loaded
+    _load_resources()
     # Vectorize
     text_vectorized = vectorizer.transform([cleaned_text])
     
@@ -197,10 +213,7 @@ def health():
 
 
 if __name__ == '__main__':
-    print("\n" + "="*60)
-    print("🚀 Starting Fake News Detection Server...")
-    print("="*60)
-    print("\n✓ Server running at: http://127.0.0.1:5000")
-    print("✓ Press CTRL+C to stop the server\n")
-    
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    import os
+    port = int(os.environ.get('PORT', 5000))
+    # Run the Flask development server (useful for local debugging)
+    app.run(host='0.0.0.0', port=port, debug=False)
