@@ -339,7 +339,7 @@ print(response.json())
 
 ---
 
-## 👨‍💻 Author
+
 
 <div align="center">
 
