@@ -343,12 +343,11 @@ print(response.json())
 
 <div align="center">
 
-### Sohail Khan
 
-**B.Tech CSE | Galgotias University**
 
-[![GitHub](https://img.shields.io/badge/GitHub-sohailkhan--code-black?style=for-the-badge&logo=github)](https://github.com/sohailkhan-code)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/sohail-khan-048976262/)
+
+
+
 
 </div>
 
@@ -375,6 +374,6 @@ If you found this project helpful:
 
 Made by **Harshit Anand  (2300970130056) ,Khushi Saraswat (2300970130069),Kanhaiya Sahani(2300970130067)**
 
-*"Fighting misinformation, one prediction at a time."*
+
 
 </div>
