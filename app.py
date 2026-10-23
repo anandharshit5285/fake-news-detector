@@ -2,7 +2,7 @@
 Flask Backend for Fake News Detection
 Ye file web server run karegi aur predictions handle karegi
 """
-
+# Updated for lazy loading and stopwords fix
 from flask import Flask, render_template, request, jsonify
 import joblib
 import re
