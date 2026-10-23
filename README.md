@@ -1,3 +1,6 @@
+Fake News Detector
+Live Demo
+https://fake-news-detector-4rxu.onrender.com/
 # 🛡️ Fake News Detection System
 
 <div align="center">
