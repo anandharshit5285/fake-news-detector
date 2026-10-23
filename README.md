@@ -373,7 +373,7 @@ If you found this project helpful:
 
 <div align="center">
 
-Made with ❤️ by **Sohail Khan**
+Made with ❤️ by **Harshit Anand  (2300970130056) ,Khushi Saraswat (2300970130069),Kanhaiya Sahani(2300970130067)**
 
 *"Fighting misinformation, one prediction at a time."*
 
