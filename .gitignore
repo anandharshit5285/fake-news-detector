@@ -1,0 +1,13 @@
+# Ignore CSV files
+*.csv
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+env/
+
+# System files
+desktop.ini
